@@ -1,0 +1,35 @@
+import org.openapitools.generator.gradle.plugin.tasks.GenerateTask
+
+plugins {
+    id "java"
+    id "org.springframework.boot"
+    id "org.openapi.generator" version "5.3.1"
+}
+
+sourceSets {
+    main {
+        java.srcDirs += "build/api";
+    }
+}
+
+dependencies {
+    implementation "org.springframework.boot:spring-boot-configuration-processor:2.6.2"
+    implementation "org.springframework.boot:spring-boot-starter-web:2.6.2"
+
+    implementation "io.swagger:swagger-annotations:1.6.4"
+}
+
+task generateJavaApi(type: GenerateTask) {
+    generatorName = "spring"
+    inputSpec = "./my-api.yaml".toString()
+    outputDir = "build/api".toString()
+    apiPackage = "org.openapi.example.api"
+    modelPackage = "org.openapi.example.model"
+    configOptions = [
+            interfaceOnly: "false",
+            delegatePattern: "true",
+            openApiNullable: "false"
+    ]
+}
+
+generateJavaApi.dependsOn(build)
