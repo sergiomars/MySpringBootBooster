@@ -1,13 +1,13 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '2.2.2.RELEASE'
+    id 'org.springframework.boot' version '2.5.9'
     id 'io.spring.dependency-management' version '1.0.8.RELEASE'
 }
 
 description = "Company Multi-Project"
 
 ext {
-    springBootVersion = '2.2.2.RELEASE'
+    springBootVersion = '2.5.9'
 }
 
 bootJar {

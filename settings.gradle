@@ -1,3 +1,4 @@
 rootProject.name = 'my-spring-boot-booster'
 
 include 'MyRestApi'
+include 'MyApplication'

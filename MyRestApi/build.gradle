@@ -5,7 +5,17 @@ plugins {
     id "org.openapi.generator" version "5.3.1"
 }
 
+
+sourceSets {
+    main {
+        java.srcDirs += "${buildDir}/api/src/main/java/"
+    }
+}
+
 dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'javax.validation:validation-api:2.0.1.Final'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.13.1'
     implementation "io.swagger:swagger-annotations:1.6.4"
 }
 
@@ -13,13 +23,25 @@ task generateJavaApi(type: GenerateTask) {
     generatorName = "spring"
     inputSpec = "$buildDir/resources/main/static/api.yaml"
     outputDir = "$buildDir/api"
-    apiPackage = "org.openapi.example.api"
-    modelPackage = "org.openapi.example.model"
+    apiPackage = "org.myApi.api"
+    modelPackage = "org.myApi.model"
     configOptions = [
-            interfaceOnly: "false",
-            delegatePattern: "true",
+            interfaceOnly: "true",
             openApiNullable: "false"
     ]
+}
+
+configure(generateJavaApi) {
+    group = 'openapi tools'
+    description = 'Generate Java API'
+}
+
+task cleanBuildPublish {
+    dependsOn 'clean'
+    dependsOn 'build'
+    dependsOn 'generateJavaApi'
+    tasks.findByName('build').mustRunAfter 'clean'
+    tasks.findByName('generateJavaApi').mustRunAfter 'build'
 }
 
 generateJavaApi.dependsOn(build)
