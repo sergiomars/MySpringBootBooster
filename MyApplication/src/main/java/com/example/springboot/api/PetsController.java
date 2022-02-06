@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class PetsController implements PetsApi {
 
     @Override
-    public ResponseEntity<Void> createPets(){
+    public ResponseEntity<Void> createPets() {
 
         return ResponseEntity.ok().build();
     }
