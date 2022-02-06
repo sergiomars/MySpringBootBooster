@@ -1,10 +1,8 @@
 import org.openapitools.generator.gradle.plugin.tasks.GenerateTask
 
 plugins {
-    id "java"
     id "org.openapi.generator" version "5.3.1"
 }
-
 
 sourceSets {
     main {
