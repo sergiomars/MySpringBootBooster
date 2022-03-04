@@ -1,7 +1,7 @@
 import org.openapitools.generator.gradle.plugin.tasks.GenerateTask
 
 plugins {
-    id "org.openapi.generator" version "5.3.1"
+    id 'org.openapi.generator' version '5.3.1'
 }
 
 sourceSets {
@@ -12,9 +12,9 @@ sourceSets {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'javax.validation:validation-api:2.0.1.Final'
-    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.13.1'
-    implementation "io.swagger:swagger-annotations:1.6.4"
+    implementation 'javax.validation:validation-api'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations'
+    implementation "io.swagger:swagger-annotations"
 }
 
 task generateJavaApi(type: GenerateTask) {
@@ -24,7 +24,7 @@ task generateJavaApi(type: GenerateTask) {
     apiPackage = "org.myApi.api"
     modelPackage = "org.myApi.model"
     configOptions = [
-            interfaceOnly: "true",
+            interfaceOnly  : "true",
             openApiNullable: "false"
     ]
 }
