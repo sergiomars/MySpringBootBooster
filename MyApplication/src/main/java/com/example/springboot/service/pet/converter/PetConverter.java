@@ -14,4 +14,11 @@ public class PetConverter {
         pet.setTag(petPO.getTag());
         return pet;
     }
+
+    public PetPO convert(Pet pet) {
+        var petPO = new PetPO();
+        petPO.setName(pet.getName());
+        petPO.setTag(pet.getTag());
+        return petPO;
+    }
 }

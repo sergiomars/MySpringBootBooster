@@ -7,13 +7,17 @@ import org.myApi.api.PetApi;
 import org.myApi.model.Pet;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.net.URI;
 import java.util.List;
 
+import static org.springframework.http.ResponseEntity.created;
 import static org.springframework.http.ResponseEntity.ok;
+import static org.springframework.web.util.UriComponentsBuilder.fromUriString;
 
 @RestController
 @AllArgsConstructor
@@ -29,8 +33,16 @@ public class PetController implements PetApi {
     }
 
     @Override
-    public ResponseEntity<Void> createPet() {
-        return ok().build();
+    public ResponseEntity<Void> createPet(
+            @ApiParam(value = "Create a new pet in the store", required = true) @Valid @RequestBody Pet pet) {
+
+        Pet savedPet = petService.createPet(pet);
+
+        URI location = fromUriString("/pet")
+                .path("/{id}")
+                .buildAndExpand(savedPet.getId())
+                .toUri();
+        return created(location).build();
     }
 
     @Override

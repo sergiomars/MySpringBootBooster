@@ -32,4 +32,10 @@ public class PetService {
                 .map(petPO -> petConverter.convert(petPO))
                 .toList();
     }
+
+    public Pet createPet(Pet pet){
+        PetPO petPO = petConverter.convert(pet);
+        PetPO savedPet = petRepository.save(petPO);
+        return petConverter.convert(savedPet);
+    }
 }
