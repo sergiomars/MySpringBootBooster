@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import org.myApi.model.Pet;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @AllArgsConstructor
@@ -22,5 +23,13 @@ public class PetService {
             return null; // TODO: throw exception, catch and return a good error message.
         }
         return petConverter.convert(petPO.get());
+    }
+
+    public List<Pet> getPets() {
+        List<PetPO> allPets = petRepository.findAll();
+        return allPets
+                .stream()
+                .map(petPO -> petConverter.convert(petPO))
+                .toList();
     }
 }

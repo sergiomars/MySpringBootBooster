@@ -1,5 +1,5 @@
 # Coding Guidelines
 
-## REST API
+### REST API
 
 * Resources are always singular.

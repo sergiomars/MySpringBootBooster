@@ -1,4 +1,4 @@
 #My Spring Boot Booster
 
 
-* Coding Guidelines
+* [Coding Guidelines](docs/CODING_GUIDELINES.md)
