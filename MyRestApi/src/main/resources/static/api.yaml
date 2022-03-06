@@ -7,12 +7,12 @@ info:
 servers:
   - url: http://petstore.swagger.io/v1
 paths:
-  /pets:
+  /pet:
     get:
       summary: List all pets
       operationId: listPets
       tags:
-        - pets
+        - pet
       parameters:
         - name: limit
           in: query
@@ -41,9 +41,9 @@ paths:
                 $ref: "#/components/schemas/Error"
     post:
       summary: Create a pet
-      operationId: createPets
+      operationId: createPet
       tags:
-        - pets
+        - pet
       responses:
         '201':
           description: Null response
@@ -53,12 +53,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
-  /pets/{petId}:
+  /pet/{petId}:
     get:
       summary: Info for a specific pet
       operationId: showPetById
       tags:
-        - pets
+        - pet
       parameters:
         - name: petId
           in: path

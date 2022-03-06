@@ -3,7 +3,7 @@ package com.example.springboot.api;
 import com.example.springboot.service.pet.PetService;
 import io.swagger.annotations.ApiParam;
 import lombok.AllArgsConstructor;
-import org.myApi.api.PetsApi;
+import org.myApi.api.PetApi;
 import org.myApi.model.Pet;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @AllArgsConstructor
-public class PetsController implements PetsApi {
+public class PetController implements PetApi {
 
     private PetService petService;
 
@@ -23,7 +23,7 @@ public class PetsController implements PetsApi {
     }
 
     @Override
-    public ResponseEntity<Void> createPets() {
+    public ResponseEntity<Void> createPet() {
 
         return ResponseEntity.ok().build();
     }

@@ -12,16 +12,16 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @ExtendWith(MockitoExtension.class)
-public class PetsControllerTest {
+public class PetControllerTest {
 
 
     @InjectMocks
-    private PetsController petsController;
+    private PetController petController;
 
     @Test
     public void createPets() {
 
-        ResponseEntity<Void> response = petsController.createPets();
+        ResponseEntity<Void> response = petController.createPet();
 
         assertNotNull(response);
         assertThat(response.getStatusCode(), is(HttpStatus.OK));
