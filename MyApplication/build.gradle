@@ -18,3 +18,5 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+compileJava.dependsOn(':MyRestApi:generateJavaApi')

@@ -15,7 +15,6 @@ bootJar {
 }
 
 allprojects {
-
     sourceCompatibility = JavaVersion.VERSION_17
     targetCompatibility = JavaVersion.VERSION_17
 
@@ -25,7 +24,6 @@ allprojects {
 }
 
 subprojects {
-
     group = 'com.spring.booster'
     version = '0.0.1-SNAPSHOT'
 
@@ -42,7 +40,6 @@ subprojects {
     }
 
     dependencies {
-
         // Lombok annotation processor
         annotationProcessor 'org.projectlombok:lombok'
 
