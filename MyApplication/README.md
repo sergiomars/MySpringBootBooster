@@ -1,3 +1,3 @@
-#My Application
+# My Application
 
-This application exposes a REST API.
+This Spring Boot application exposes a REST API.
